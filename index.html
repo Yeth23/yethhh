@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        input {
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultBox {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Properties Checker</h1>
+    <p>Enter a number:</p>
+    <input type="number" id="numInput" name="numInput">
+    <button onclick="checkNumberProperties()">Check Number Properties</button>
+    <div id="resultBox"></div>
+
+    <script>
+        function checkNumberProperties() {
+            var num = document.getElementById('numInput').value;
+
+            var odds = [1];
+            var evens = [];
+
+            for (var i = 2; i <= num; i++) {
+                if (i % 2 === 0) {
+                    evens.push(i);
+                } else {
+                    odds.push(i);
+                }
+            }
+
+            // Create HTML string with result
+            var result = '<h2>Number Properties:</h2>';
+            result += '<p>Number: ' + num + '</p>';
+            result += '<p>Odd numbers: ' + odds.join(', ') + '</p>';
+            result += '<p>Even numbers: ' + evens.join(', ') + '</p>';
+
+            // Display result
+            document.getElementById('resultBox').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
